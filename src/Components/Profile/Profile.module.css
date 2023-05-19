@@ -45,3 +45,18 @@
 .actionButton:hover {
     border-color: rgb(146, 44, 255);
 }
+
+.actionButton2 {
+    cursor: pointer;
+    font: inherit;
+    color: white;
+    background-color: purple;
+    border: 2px solid rgb(146, 44, 255);
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+}
+
+.actionButton2:hover {
+    border-color: rgb(146, 44, 255);
+    background-color: rgb(146, 44, 255);
+}

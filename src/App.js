@@ -6,6 +6,7 @@ import Profile from "./Components/Profile/Profile";
 import AuthContext from './Components/Store/AuthContext';
 import VerifyEmail from './Components/VerifyEmail/VerifyEmail';
 import ForgotPassword from './Components/ForgotPassword/ForgotPassword';
+import ExpenseForm from './Components/ExpenseTracker/ExpenseForm';
 
 function App() {
   const auth_ctx = useContext(AuthContext);
@@ -23,6 +24,10 @@ function App() {
                 element={loggedIn ? <VerifyEmail /> : <SignUp />}
             />
             <Route path="/forgot-password" element={<ForgotPassword />} />
+            <Route
+                path="/ExpenseTracker"
+                element={loggedIn ? <ExpenseForm /> : <SignUp />}
+            />
     </Routes> 
   );
 }

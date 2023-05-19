@@ -1,4 +1,5 @@
 import React,{useState,useContext,useCallback,useEffect} from "react";
+import { Link } from "react-router-dom";
 import AuthContext from "../Store/AuthContext";
 import UpdateForm from "../Update/UpdateForm";
 import classes from "./Profile.module.css"
@@ -118,6 +119,13 @@ const Profile = () => {
                 <UpdateForm data={collectedData} onCancel={onCancelHandler} />
             )}
             {!isVerified && <VerifyEmail />}
+            <Link to="/ExpenseTracker" style={{ textDecoration: "none" }}>
+                <div className={classes.start}>
+                    <button className={classes.actionButton2}>
+                        Expense Tracker
+                    </button>
+                </div>
+            </Link>
         </React.Fragment>
     );
 };
