@@ -56,9 +56,7 @@
 
 .actions {
     margin-top: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
 }
 
 .actions button {
@@ -68,6 +66,7 @@
     background-color: transparent;
     border: 2px solid #ca0098;
     border-radius: 5px;
+    margin-right: 1rem;
     padding: 0.5rem 1.5rem;
 }
 

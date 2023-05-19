@@ -66,7 +66,8 @@ const UpdateForm = (props) => {
                     defaultValue={props.data.photoUrl}
                 />
                 <div className={classes.actions}>
-                    <button onClick={updateProfileHandler}>update</button>
+                <button onClick={updateProfileHandler}>Update</button>
+                    <button onClick={props.onCancel}>Cancel</button>
                 </div>
             </form>
         </div>
