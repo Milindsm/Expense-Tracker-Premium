@@ -67,7 +67,7 @@ const UpdateForm = (props) => {
                 />
                 <div className={classes.actions}>
                 <button onClick={updateProfileHandler}>Update</button>
-                    <button onClick={props.onCancel}>Cancel</button>
+                    <button onClick={props.onCancel}>Close</button>
                 </div>
             </form>
         </div>

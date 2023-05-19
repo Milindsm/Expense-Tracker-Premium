@@ -1,8 +1,8 @@
-import React,{useState,useContext} from "react";
-import { useNavigate } from "react-router-dom";
+import React,{useState,useContext,useCallback,useEffect} from "react";
 import AuthContext from "../Store/AuthContext";
 import UpdateForm from "../Update/UpdateForm";
 import classes from "./Profile.module.css"
+import VerifyEmail from "../VerifyEmail/VerifyEmail";
 
 let collectedData = {
     email: "",
@@ -14,6 +14,7 @@ const Profile = () => {
     const authCtx = useContext(AuthContext);
     const idToken = localStorage.getItem("token");
     const [isComplete, setIsComplete] = useState(false);
+    const [isVerified, setIsVerified] = useState(true);
     const [updateStatus, setUpdateStatus] = useState();
     const profileUpdateHandler = () => {
         setIsComplete(true);
@@ -21,50 +22,61 @@ const Profile = () => {
     const onCancelHandler = () => {
         setIsComplete(false);
     };
-    if (authCtx.isLoggedIn) {
-        fetch(
-            "https://identitytoolkit.googleapis.com/v1/accounts:lookup?key=AIzaSyCzpS8mhUYjlEGXWgom8MK0UNFqjGjlbzM",
-            {
-                method: "POST",
-                body: JSON.stringify({
-                    idToken: idToken,
-                }),
-                headers: {
-                    "Content-Type": "application/json",
-                },
-            }
-        )
-            .then(async (res) => {
-                if (res.ok) {
-                    return res.json();
-                } else {
-                    const data = await res.json();
-                    let errorMessage = "Authentication Failed";
-                    if (data && data.error && data.message)
-                        errorMessage = data.error.message;
-                    throw new Error(errorMessage);
+    const profileHandler = useCallback(() => {
+        if (authCtx.isLoggedIn) {
+            fetch(
+                "https://identitytoolkit.googleapis.com/v1/accounts:lookup?key=AIzaSyCzpS8mhUYjlEGXWgom8MK0UNFqjGjlbzM",
+                {
+                    method: "POST",
+                    body: JSON.stringify({
+                        idToken: idToken,
+                    }),
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
                 }
-            })
-            .then((data) => {
-                console.log(data);
-                collectedData.email = data.users[0].email;
-                if (data.users[0].displayName && data.users[0].photoUrl) {
-                    collectedData.displayName = data.users[0].displayName;
-                    collectedData.photoUrl = data.users[0].photoUrl;
-                    setUpdateStatus(true);
-                } else {
-                    setUpdateStatus(false);
-                }
-            })
-            .catch((err) => {
-                alert(err.message);
-            });
-    }
+                )
+                .then(async (res) => {
+                    if (res.ok) {
+                        return res.json();
+                    } else {
+                        const data = await res.json();
+                        let errorMessage = "Authentication Failed";
+                        if (data && data.error && data.message)
+                            errorMessage = data.error.message;
+                        throw new Error(errorMessage);
+                    }
+                })
+                .then((data) => {
+                    console.log(data.users[0].emailVerified);
+                    if (!data.users[0].emailVerified) {
+                        setIsVerified(false);
+                    } else {
+                        setIsVerified(true);
+                    }
+                    collectedData.email = data.users[0].email;
+                    if (data.users[0].displayName && data.users[0].photoUrl) {
+                        collectedData.displayName = data.users[0].displayName;
+                        collectedData.photoUrl = data.users[0].photoUrl;
+                        setUpdateStatus(true);
+                    } else {
+                        setUpdateStatus(false);
+                    }
+                })
+                .catch((err) => {
+                    alert(err.message);
+                });
+        }
+    }, [authCtx.isLoggedIn, idToken]);
+
+    useEffect(() => {
+        profileHandler();
+    }, [profileHandler]);
     return (
         <React.Fragment>
             <div className={classes.start}>
                 <h3>Welcome to Expense Tracker!</h3>
-                {!updateStatus && (
+                {!updateStatus && isVerified && (
                     <p className={classes.statement}>
                         Your profile is incomplete
                         <button
@@ -75,7 +87,7 @@ const Profile = () => {
                         </button>
                     </p>
                 )}
-                {updateStatus && (
+                {updateStatus && isVerified && (
                     <p className={classes.statement}>
                         Your profile is Complete
                         <button
@@ -87,9 +99,10 @@ const Profile = () => {
                     </p>
                 )}
             </div>
-            {isComplete && (
+            {isComplete && isVerified && (
                 <UpdateForm data={collectedData} onCancel={onCancelHandler} />
             )}
+            {!isVerified && <VerifyEmail />}
         </React.Fragment>
     );
 };
