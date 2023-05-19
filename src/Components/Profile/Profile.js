@@ -22,6 +22,9 @@ const Profile = () => {
     const onCancelHandler = () => {
         setIsComplete(false);
     };
+    const logoutHandler = () => {
+        authCtx.logout();
+    };
     const profileHandler = useCallback(() => {
         if (authCtx.isLoggedIn) {
             fetch(
@@ -85,6 +88,12 @@ const Profile = () => {
                         >
                             Complete now
                         </button>
+                        <button
+                            className={classes.actionButton}
+                            onClick={logoutHandler}
+                        >
+                            Logout
+                        </button>
                     </p>
                 )}
                 {updateStatus && isVerified && (
@@ -95,6 +104,12 @@ const Profile = () => {
                             onClick={profileUpdateHandler}
                         >
                             Edit now
+                        </button>
+                        <button
+                            className={classes.actionButton}
+                            onClick={logoutHandler}
+                        >
+                            Logout
                         </button>
                     </p>
                 )}

@@ -10,7 +10,7 @@
     padding-bottom: 2rem;
     padding-left: 1rem;
     text-align: left;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .actionToggle  {
@@ -20,10 +20,25 @@
     text-decoration: underline;
     background: transparent;
     border: none;
+    margin-right: 20px;
 }
 
 .statement {
     opacity: 1;
     color: rgba(255, 255, 255);
    
+}
+
+.actionButton {
+    cursor: pointer;
+    font: inherit;
+    color: white;
+    background-color: transparent;
+    border: 2px solid #ca0098;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+}
+
+.actionButton:hover {
+    border-color: rgb(146, 44, 255);
 }
