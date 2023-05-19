@@ -1,33 +1,29 @@
 .start {
     margin: 3rem auto;
     width: 95%;
-    max-width: 50rem;
+    max-width: 70rem;
     border-radius: 11px;
     background-color: rgb(44, 44, 44);
     box-shadow: 0 1px 4px rgb(0, 0, 0.2);
     padding-top: 1.5rem;
-    padding-right: 3rem;
+    padding-right: 1rem;
     padding-bottom: 2rem;
-    padding-left: 3rem;
-    text-align: center;
+    padding-left: 1rem;
+    text-align: left;
+    justify-content: space-between;
 }
 
-.updateButton {
+.actionToggle  {
     cursor: pointer;
-    font: inherit;
-    color: white;
-    background-color: transparent;
-    border: 2px solid #ca0098;
-    border-radius: 5px;
-    padding: 0.5rem 1.5rem;
-}
-
-.updateButton:hover {
-    border-color: rgb(146, 44, 255);
+    color: rgba(255, 255, 255, 0.502);
+    font-size: 16px;
+    text-decoration: underline;
+    background: transparent;
+    border: none;
 }
 
 .statement {
     opacity: 1;
-    color: rgba(255, 255, 255, 0.502);
-    margin-bottom: 2rem;
+    color: rgba(255, 255, 255);
+   
 }
