@@ -22,6 +22,9 @@
     border: none;
     margin-right: 20px;
 }
+.actionToggle:hover  {
+    color: blue;
+}
 
 .statement {
     opacity: 1;

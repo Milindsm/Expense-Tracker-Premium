@@ -1,5 +1,5 @@
 import { useRef,useState,useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
 import classes from "./SignUp.module.css";
 import AuthContext from "../Store/AuthContext";
 
@@ -61,6 +61,8 @@ const SignUp = () => {
                 } else {
                     await res.json();
                     let errorMessage = "Authentication failed!";
+                    setIsLoading(false);
+                    event.target.reset();
                     throw new Error(errorMessage);
                 }
             })
@@ -115,6 +117,11 @@ const SignUp = () => {
                         />
                     </div>
                 )}
+                <Link to="/forgot-password">
+                    <button className={classes.actionToggle}>
+                        Forgot Password?
+                    </button>
+                </Link>
                 <div className={classes.actions}>
                 {!isLogin && (
                         <div>
