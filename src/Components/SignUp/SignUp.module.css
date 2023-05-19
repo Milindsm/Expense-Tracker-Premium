@@ -1,24 +1,30 @@
 .auth {
     margin: 3rem auto;
-    width: 90%;
+    width: 95%;
     max-width: 25rem;
     border-radius: 11px;
-    background-color: rgb(38, 38, 38);
+    background-color: rgb(44,44,44);
     box-shadow: 0 1px 4px rgb(0, 0, 0.2);
-    padding-top: 2rem;
+    padding-top: 1.5rem;
     padding-right: 3rem;
-    padding-bottom: 3rem;
+    padding-bottom: 2rem;
     padding-left: 3rem;
     text-align: center;
 }
 
+.auth p {
+    opacity: 1;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: " 2rem";
+}
+
 .auth h1 {
-    background-color: rgb(38, 38, 38);
+    background-color: rgb(44,44,44);
     text-align: center;
     color: white;
-    font-size: larger;
-    padding: 2px;
-    margin-bottom: 20px;
+    margin-bottom: 0;
+    font-size: 29px;
+
 }
 .control {
     margin-bottom: 0.5rem;
@@ -27,25 +33,25 @@
 .control label {
     display: block;
     color: white;
-    font-weight: bold;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     text-align: left;
 }
 
 .control input {
     font: inherit;
-    background-color: rgb(55, 55, 55);
+    background-color: transparent;
     color: white;
     border-radius: 4px;
-    border: 1px solid #ca0098;
+    border: 1.5px solid white;
     width: 100%;
     text-align: left;
-    padding: 0.28rem;
-    margin-bottom: 17px;
+    padding: 0.3rem;
+    margin-bottom: 0.2rem;
 }
 
-.control input:hover {
-    border: 1px solid rgba(106, 17, 203, 1);
+.control input:focus {
+    outline: none !important;
+    border: 1.5px solid #ca0098;
 }
 
 .actions {
@@ -55,19 +61,32 @@
     align-items: center;
 }
 
-.actions button {
+.actionButton {
     cursor: pointer;
     font: inherit;
     color: white;
-    background-color: #ca0098;
-    border: 1px solid #ca0098;
+    background-color: transparent;
+    border: 2px solid #ca0098;
     border-radius: 5px;
     padding: 0.5rem 1.5rem;
 }
 
 .actions button:hover {
-    background-color: rgb(146, 44, 255);
     border-color: rgb(146, 44, 255);
+}
+.actions p {
+    opacity: 1;
+    color: rgba(255, 255, 255);
+    margin-bottom: " 2rem";
+}
+
+.actionToggle {
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.502);
+    font-size: 16px;
+    text-decoration: none;
+    background: transparent;
+    border: none;
 }
 
 body {
