@@ -55,7 +55,7 @@ const SignUp = () => {
                 if (res.ok) {
                     event.target.reset();
                     const data = await res.json();
-                    auth_ctx.login(data.idToken);
+                    auth_ctx.login(data.idToken, data.email);
                     navigate("/profile");
                     return data;
                 } else {

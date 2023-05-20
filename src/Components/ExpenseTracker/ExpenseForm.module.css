@@ -1,7 +1,6 @@
 .start {
-    display: flex;
-    margin: 3rem auto;
-    width: 90%;
+    margin: 2rem auto;
+    width: 95%;
     max-width: 50rem;
     border-radius: 11px;
     background-color: rgb(44, 44, 44);
@@ -10,6 +9,17 @@
     padding-right: 2rem;
     padding-bottom: 2rem;
     padding-left: 2rem;
+}
+
+.expenses {
+    margin: 2rem auto;
+    width: 95%;
+    max-width: 50rem;
+    border-radius: 11px;
+    background-color: rgb(44, 44, 44);
+    box-shadow: 0 1px 4px rgb(0, 0, 0.2);
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
 }
 
 .new-expense__controls {
@@ -21,32 +31,33 @@
 }
 
 .new-expense__control label {
-    font-weight: bold;
-    margin-bottom: 0.5rem;
     display: block;
+    color: white;
+    margin-bottom: 0.5rem;
+    text-align: left;
 }
 
 .new-expense__control input {
     font: inherit;
-    padding: 0.5rem;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    width: 20rem;
-    max-width: 100%;
+    border-radius: 4px;
+    border: 1.5px solid white;
+    width: 100%;
+    text-align: left;
+    padding: 0.3rem;
 }
 
 .new-expense__control select {
-    cursor: pointer;
+    
     font: inherit;
-    padding: 0.5rem;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    width: 20rem;
-    max-width: 100%;
+    border-radius: 4px;
+    border: 1.5px solid white;
+    width: 100%;
+    text-align: left;
+    padding: 0.3rem;
 }
 
 .new-expense__actions {
-    margin-top: 1rem;
+    
     cursor: pointer;
     font: inherit;
     color: white;
