@@ -1,18 +1,24 @@
 import classes from "./ExpenseList.module.css";
-import React,{useContext} from "react"
+import React from "react";
+// import React,{useContext} from "react"
 import { Table } from "react-bootstrap";
 import {BsFillTrashFill} from "react-icons/bs"
 import { BsFillPencilFill } from "react-icons/bs";
-import ExpenseContext from "../Store/ExpenseContext";
+// import ExpenseContext from "../Store/ExpenseContext";
 
 
 const ExpenseList = (props) => {
-    const expenseCtx = useContext(ExpenseContext);
+    // const expenseCtx = useContext(ExpenseContext);
     const removeItem = () => {
-        expenseCtx.removeItems(props);
+        // expenseCtx.removeItems(props);
+        props.onRemove(props);
+    };
+    const editHandler = () => {
+        props.onEdit();
+        removeItem();
     };
     return (
-        <Table>
+        <Table style={{ marginBottom: "1rem" }}>
             <tbody>
                 <tr>
                     <th width="170">{props.category}</th>
@@ -24,7 +30,7 @@ const ExpenseList = (props) => {
                     <th width="50">
                         <BsFillPencilFill
                             className={classes.action}
-                            onClick={props.onEdit}
+                            onClick={editHandler}
                         />
                     </th>
                     <th>
