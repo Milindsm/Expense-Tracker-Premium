@@ -1,10 +1,12 @@
 import React,{useRef,useState} from "react";
 import { useNavigate } from "react-router-dom";
 import classes from "./ForgotPassword.module.css";
+import { useSelector } from "react-redux";
 
 const ForgotPassword = () => {
     const emailInputRef = useRef();
     const [isLoading, setIsLoading] = useState(false);
+    const isDark = useSelector((state) => state.theme.isDark);
     const navigate = useNavigate();
 
     const loaderHandler = () => {
@@ -51,14 +53,20 @@ const ForgotPassword = () => {
             });
     };
     return (
-        <div className={classes.start}>
+        //  <div className={classes.start}>
+        <div className={isDark ? classes.start : classes["start_light"]}>
             <h1>RESET PASSWORD</h1>
             <form onSubmit={submitHandler}>
                 <label>Email Address</label>
                 <input type="text" ref={emailInputRef} />
                 <button
                     type="submit"
-                    className={classes.actionButton}
+                    // className={classes.actionButton}
+                    className={
+                        isDark
+                            ? classes.actionButton
+                            : classes["actionButton_light"]
+                    }
                     onClick={loaderHandler}
                 >
                     {!isLoading ? "Send mail" : "Sending Request"}

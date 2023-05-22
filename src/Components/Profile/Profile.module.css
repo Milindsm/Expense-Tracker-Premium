@@ -45,6 +45,68 @@
 .actionButton:hover {
     border-color: rgb(146, 44, 255);
 }
+.start_light {
+    display: flex;
+    margin: 3rem auto;
+    width: 95%;
+    max-width: 70rem;
+    border-radius: 11px;
+    background-color: rgb(255, 238, 238);
+    box-shadow: 0 1px 4px rgb(0, 0, 0.2);
+    padding-top: 1.5rem;
+    padding-right: 1rem;
+    padding-bottom: 2rem;
+    padding-left: 1rem;
+    text-align: left;
+    justify-content: space-around;
+}
+
+.actionToggle_light {
+    cursor: pointer;
+    color: rgba(73, 73, 73, 0.808);
+    font-size: 16px;
+    text-decoration: underline;
+    background: transparent;
+    border: none;
+    margin-right: 20px;
+}
+
+.statement_light {
+    opacity: 1;
+    color: rgba(65, 65, 65, 0.87);
+}
+.actionButton_light {
+    cursor: pointer;
+    font: inherit;
+    color: black;
+    background-color: transparent;
+    border: 2px solid #ca0098;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+}
+
+.actionButton_light:hover {
+    border-color: rgb(146, 44, 255);
+}
+
+.actionButton2_light {
+    justify-content: center;
+    cursor: pointer;
+    font: inherit;
+    color: black;
+    background-color: transparent;
+    border: 2px solid #ca0098;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+}
+
+.actionButton2_light:hover {
+    border-color: rgb(146, 44, 255);
+}
+
+.start_light h3 {
+    color: black;
+}
 
 .actionButton2 {
     cursor: pointer;

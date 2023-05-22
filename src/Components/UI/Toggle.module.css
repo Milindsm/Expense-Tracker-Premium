@@ -1,0 +1,27 @@
+.actionButton_light {
+    cursor: pointer;
+    font: inherit;
+    color: black;
+    background-color: transparent;
+    border: 2px solid #ca0098;
+    border-radius: 5px;
+    padding: 0.5rem 1.5rem;
+}
+
+.actionButton_light:hover {
+    border-color: rgb(146, 44, 255);
+}
+
+.actionButton {
+    cursor: pointer;
+    font: inherit;
+    color: white;
+    background-color: transparent;
+    border: 2px solid #ca0098;
+    border-radius: 5px;
+    padding: 0.5rem 1.5rem;
+}
+
+.actionButton:hover {
+    border-color: rgb(146, 44, 255);
+}

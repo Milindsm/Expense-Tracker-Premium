@@ -23,6 +23,39 @@
     padding: 0.5rem 1.5rem;
 }
 
+.start_light {
+    margin: 3rem auto;
+    width: 95%;
+    max-width: 70rem;
+    border-radius: 11px;
+    background-color: rgb(255, 238, 238);
+    box-shadow: 0 1px 4px rgb(0, 0, 0.2);
+    padding-top: 1.5rem;
+    padding-right: 1rem;
+    padding-bottom: 2rem;
+    padding-left: 1rem;
+    text-align: center;
+    justify-content: center;
+}
+.start_light p {
+    opacity: 1;
+    color: rgba(65, 65, 65, 0.87);
+    margin-bottom: 2rem;
+}
+.actionButton_light {
+    cursor: pointer;
+    font: inherit;
+    color: black;
+    background-color: transparent;
+    border: 2px solid #ca0098;
+    border-radius: 5px;
+    padding: 0.5rem 1.5rem;
+}
+
+.actionButton_light:hover {
+    border-color: rgb(146, 44, 255);
+}
+
 .actionButton:hover {
     border-color: rgb(146, 44, 255);
 }
